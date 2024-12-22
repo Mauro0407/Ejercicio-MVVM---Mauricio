@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:Notes.ViewModels"
+             x:Class="Notes.Views.NotePage"
+             Title="Mis notas"
+             Shell.TitleColor="#800000">
+    <ContentPage.BindingContext>
+        <viewModels:NoteViewModel />
+    </ContentPage.BindingContext>
+    <VerticalStackLayout Spacing="10" Margin="5">
+        <Label Text="Escribe tus notas"
+               FontSize="Medium"
+               HorizontalOptions="Center"
+               TextColor="#800000" />
+
+        <Editor x:Name="TextEditor"
+                Placeholder="Ingresa tu nota"
+                Text="{Binding Text}"
+                HeightRequest="100"
+                BackgroundColor="#FFF0F0"
+                TextColor="#333333" />
+
+        <Grid ColumnDefinitions="*,*" ColumnSpacing="4">
+            <Button Text="Guardar nota"
+                    Command="{Binding SaveCommand}"
+                    BackgroundColor="#800000"
+                    TextColor="White" />
+
+            <Button Grid.Column="1"
+                    Text="Borrar nota"
+                    Command="{Binding DeleteCommand}"
+                    BackgroundColor="#800000"
+                    TextColor="White" />
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

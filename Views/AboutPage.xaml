@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:Notes.ViewModels"
+             x:Class="Notes.Views.AboutPage"
+             Title="Acerca de"
+             Shell.TitleColor="#800000">
+    <ContentPage.BindingContext>
+        <viewModels:AboutViewModel />
+    </ContentPage.BindingContext>
+    <VerticalStackLayout Spacing="10" Margin="10">
+        <HorizontalStackLayout Spacing="10">
+            <Image Source="dotnet_bot.png"
+                   SemanticProperties.Description="El bot de .NET saludando!"
+                   HeightRequest="64" />
+            <Label FontSize="22" FontAttributes="Bold" Text="{Binding Title}"
+                   VerticalOptions="End" TextColor="#800000" />
+            <Label FontSize="22" Text="{Binding Version}"
+                   VerticalOptions="End" TextColor="#800000" />
+        </HorizontalStackLayout>
+
+        <Label Text="{Binding Message}"
+               TextColor="#333333" FontSize="18" />
+        <Button Text="Saber más..." Command="{Binding ShowMoreInfoCommand}"
+                BackgroundColor="#800000" TextColor="White" />
+    </VerticalStackLayout>
+</ContentPage>
+
